@@ -1,0 +1,54 @@
+/*
+     * 1. GLOBAL FIXED LAYOUT SETUP:
+     * We set the body to occupy 100% of the viewport height and use Flexbox to arrange the sections.
+     */
+    html, body {
+        margin: 0;
+        padding: 0;
+        height: 100%; /* Important: sets the body's height */
+    }
+    body {
+        display: flex; 
+        flex-direction: column; /* Stack header, content, and footer vertically */
+        height: 100vh; /* Viewport height ensures the scroll only happens inside the main content */
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+    }
+
+    /* * 2. HEADER BAR STYLES: FIXED POSITIONING NOT NEEDED (Flexbox manages it)
+     * We remove 'position: fixed' and 'padding-top' because the header is now a static
+     * component of the flex container (the body).
+     */
+    .header-bar {
+        background-color: #333;
+        color: white;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        box-sizing: border-box; 
+        
+        /* Removed position: fixed */
+        flex-shrink: 0; /* Prevents the header from shrinking when content grows */
+    }
+
+    /* 3. SCROLLABLE CONTENT WRAPPER:
+     * This is the crucial part. It takes up all remaining space (flex-grow: 1)
+     * and is assigned its own scrollbar (overflow-y: auto).
+     */
+    .scrollable-content-wrapper {
+        flex-grow: 1; /* Takes up all available vertical space */
+        overflow-y: auto; /* Adds a scrollbar when content exceeds the available height */
+        padding: 20px; /* Add internal padding for content spacing */
+    }
+    
+    /* --- Remaining Menu Styles (Unchanged) --- */
+    .header-title { font-size: 1.2em; font-weight: bold; }
+    .user-menu { position: relative; display: inline-block; cursor: pointer; }
+    .user-name-display { background-color: #555; padding: 5px 15px; border-radius: 4px; transition: background-color 0.2s; }
+    .user-name-display:hover { background-color: #777; }
+    .dropdown-content { display: none; position: absolute; right: 0; background-color: #f9f9f9; min-width: 160px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1; border-radius: 4px; overflow: hidden; }
+    .dropdown-content a { color: black; padding: 12px 16px; text-decoration: none; display: block; }
+    .dropdown-content a:hover { background-color: #ddd; }
+    .user-menu:hover .dropdown-content { display: block; }

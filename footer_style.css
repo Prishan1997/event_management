@@ -1,0 +1,28 @@
+.footer-bar {
+        background-color: #333;
+        color: #ccc;
+        padding: 15px 20px;
+        text-align: center;
+        font-size: 0.85em;
+        width: 100%;
+        box-sizing: border-box;
+        
+        /* Ensures the footer never shrinks */
+        flex-shrink: 0; 
+    }
+
+    .footer-links a {
+        color: #fff;
+        text-decoration: none;
+        margin: 0 10px;
+        transition: color 0.2s;
+    }
+
+    .footer-links a:hover {
+        color: #4CAF50; 
+    }
+
+    .copyright {
+        margin-top: 10px;
+        color: #aaa;
+    }
